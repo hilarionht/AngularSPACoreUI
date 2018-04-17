@@ -1,7 +1,6 @@
 export const navigation = [
   {
-    name: 'Dashboard',  url: '/dashboard', icon: 'icon-speedometer',
-    badge: { variant: 'info',      text: 'NEW'     }
+    name: 'Usuario',  url: '/usuarios', icon: 'icon-user', badge: { variant: 'info',      text: 'Mas'     }
   },
   // { title: true,  name: 'Theme'  },
   // { name: 'Colors',    url: '/theme/colors',    icon: 'icon-drop'  },
@@ -20,7 +19,7 @@ export const navigation = [
       { name: 'Tabs',  url: '/base/tabs',  icon: 'icon-puzzle'  },
       { name: 'Tooltips',  url: '/base/tooltips', icon: 'icon-puzzle' }
     ]
-  },
+  }
   // {
   //   name: 'Buttons',
   //   url: '/buttons',
@@ -43,16 +42,16 @@ export const navigation = [
   //     }
   //   ]
   // },
-  {
-    name: 'Charts',
-    url: '/charts',
-    icon: 'icon-pie-chart'
-  },
-      {
-        name: 'Simple Line Icons',
-        url: '/icons/simple-line-icons',
-        icon: 'icon-star'
-      },
+  // {
+  //   name: 'Charts',
+  //   url: '/charts',
+  //   icon: 'icon-pie-chart'
+  // },
+  //     {
+  //       name: 'Simple Line Icons',
+  //       url: '/icons/simple-line-icons',
+  //       icon: 'icon-star'
+  //     },
   // {
   //   name: 'Icons',
   //   url: '/icons',
@@ -83,32 +82,32 @@ export const navigation = [
   //     }
   //   ]
   // },
-  {
-    name: 'Notifications',
-    url: '/notifications',
-    icon: 'icon-bell',
-    children: [
-      {
-        name: 'Alerts',
-        url: '/notifications/alerts',
-        icon: 'icon-bell'
-      },
-      {
-        name: 'Modals',
-        url: '/notifications/modals',
-        icon: 'icon-speech'
-      }
-    ]
-  },
-  {
-    name: 'Widgets',
-    url: '/widgets',
-    icon: 'icon-calculator',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
+  // {
+  //   name: 'Notifications',
+  //   url: '/notifications',
+  //   icon: 'icon-bell',
+  //   children: [
+  //     {
+  //       name: 'Alerts',
+  //       url: '/notifications/alerts',
+  //       icon: 'icon-bell'
+  //     },
+  //     {
+  //       name: 'Modals',
+  //       url: '/notifications/modals',
+  //       icon: 'icon-speech'
+  //     }
+  //   ]
+  // },
+  // {
+  //   name: 'Widgets',
+  //   url: '/widgets',
+  //   icon: 'icon-calculator',
+  //   badge: {
+  //     variant: 'info',
+  //     text: 'NEW'
+  //   }
+  // },
   // {
   //   divider: true
   // },

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubirArchivoService } from '../../services/service.index';
 import { ModalUploadService } from './modal-upload.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -14,7 +15,7 @@ export class ModalUploadComponent implements OnInit {
   titulo: string = 'Subir Imagen';
 
   constructor(
-    //public _subirArchivoService: SubirArchivoService,
+    public _subirArchivoService: SubirArchivoService,
     public _modalUploadService: ModalUploadService,
     public toastr: ToastrService
   ) { }
@@ -54,16 +55,16 @@ export class ModalUploadComponent implements OnInit {
 
   subirImagen() {
 
-    // this._subirArchivoService.subirArchivo( this.imagenSubir, this._modalUploadService.tipo, this._modalUploadService.id )
-    //       .then( resp => {
+    this._subirArchivoService.subirArchivo( this.imagenSubir, this._modalUploadService.tipo, this._modalUploadService.id )
+          .then( resp => {
 
-    //         this._modalUploadService.notificacion.emit( resp );
-    //         this.cerrarModal();
+            this._modalUploadService.notificacion.emit( resp );
+            this.cerrarModal();
 
-    //       })
-    //       .catch( err => {
-    //         console.log( 'Error en la carga... ');
-    //       });
+          })
+          .catch( err => {
+            console.log( 'Error en la carga... ');
+          });
 
   }
 

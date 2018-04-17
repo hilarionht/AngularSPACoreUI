@@ -65,12 +65,16 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { UsuariosComponent } from './views/usuarios/usuarios.component';
 import { ModalUploadComponent } from './components/modal-upload/modal-upload.component';
 
 //toastr
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './views/pages/login.component';
+import { RegisterComponent } from './views/pages/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceModule } from './services/service.module';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -80,14 +84,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ToastrModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ServiceModule,
+    PipesModule
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
-    UsuariosComponent,
+    LoginComponent,
+    RegisterComponent,
     ModalUploadComponent
   ],
   providers: [{

@@ -1,19 +1,30 @@
 import { NgModule } from '@angular/core';
 
 import { P404Component } from './404.component';
-import { P500Component } from './500.component';
-import { LoginComponent } from './login.component';
-import { RegisterComponent } from './register.component';
 
-import { PagesRoutingModule } from './pages-routing.module';
+// import { PagesRoutingModule } from './pages-routing.module';
+import { ServiceModule } from '../../services/service.module';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { PipesModule } from '../../pipes/pipes.module';
+import { PAGES_ROUTES } from './pages.routes';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  imports: [ PagesRoutingModule ],
+  imports: [ 
+    CommonModule,
+    // PagesRoutingModule ,
+    PAGES_ROUTES, 
+    ServiceModule,
+    FormsModule,
+    ReactiveFormsModule,
+    PipesModule
+],
   declarations: [
-    P404Component,
-    P500Component,
-    LoginComponent,
-    RegisterComponent
+    UsuariosComponent,
+    ProfileComponent,
+    P404Component
   ]
 })
 export class PagesModule { }

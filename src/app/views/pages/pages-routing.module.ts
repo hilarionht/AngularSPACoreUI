@@ -2,45 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { P404Component } from './404.component';
-import { P500Component } from './500.component';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   {
-    path: '',
-    data: {
-      title: 'Example Pages'
-    },
+    path: '',  data: { title: 'Example Pages' },
     children: [
-      {
-        path: '404',
-        component: P404Component,
-        data: {
-          title: 'Page 404'
-        }
-      },
-      {
-        path: '500',
-        component: P500Component,
-        data: {
-          title: 'Page 500'
-        }
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
-        data: {
-          title: 'Login Page'
-        }
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-        data: {
-          title: 'Register Page'
-        }
-      }
+      { path: '404',   component: P404Component,  data: { title: 'Page 404'  }},
+      { path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de Usuario' } }
     ]
   }
 ];
