@@ -24,6 +24,7 @@ export class TipoProductoService {
 
     let url = URL_SERVICIOS + '/tipo-producto';
     url += '?token=' + this._usuarioService.token;
+console.log(url);
 
     return this.http.post( url, { nombre } )
               .map( (resp: any) => resp.producto );
@@ -40,8 +41,8 @@ export class TipoProductoService {
   }
 
   cargarTipoProductos(desde: number=0,limite: number=0) { 
-    let url = URL_SERVICIOS + '/tipo-producto?desde='+ desde + '&limite='+limite;
-//  console.log(url);
+    let url = URL_SERVICIOS + '/tipo-producto?token='+this._usuarioService.token +'&desde='+ desde + '&limite='+limite;
+  console.log(url);
  
     return this.http.get( url ).map( (resp : any) => {
         this.totalTipoProductos = resp.total;
@@ -52,6 +53,8 @@ export class TipoProductoService {
   obtenerTipoProducto(id: string){
     let url = URL_SERVICIOS + '/tipo-producto/' + id;
     url += '?token=' + this._usuarioService.token;
+    console.log(url);
+    
     return this.http.get( url )
               .map( (resp: any) => resp.tipoProducto );
   }
@@ -68,12 +71,12 @@ export class TipoProductoService {
 
     let url = URL_SERVICIOS + '/tipo-producto';
 
+  
+
     if ( tipoProducto._id ) {
       // actualizando
       url += '/' + tipoProducto._id;
       url += '?token=' + this._usuarioService.token;
-     
-      
       return this.http.put( url, tipoProducto )
                 .map( (resp: any) => {
                   swal('Producto Actualizado', tipoProducto.nombre, 'success');
@@ -83,7 +86,6 @@ export class TipoProductoService {
     }else {
       // creando
       url += '?token=' + this._usuarioService.token;
-      
       return this.http.post( url, tipoProducto )
               .map( (resp: any) => {
                 swal('Producto Creado', tipoProducto.nombre, 'success');

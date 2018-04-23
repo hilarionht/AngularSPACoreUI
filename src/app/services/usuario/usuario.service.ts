@@ -61,8 +61,7 @@ export class UsuarioService {
     
     return this.http.post(url, usuario)
       .map((res: any) => {
-        console.log(usuario);
-        
+      
         this.toastr.success( usuario.nombre, 'Usuario Creado!',{ timeOut: 3000,positionClass: 'toast-top-right'});
         //swal('Usuario Creado', usuario.email, 'success');
         return res.usuario;

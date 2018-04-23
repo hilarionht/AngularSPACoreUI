@@ -75,6 +75,7 @@ import { RegisterComponent } from './views/pages/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceModule } from './services/service.module';
 import { PipesModule } from './pipes/pipes.module';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   imports: [
@@ -85,9 +86,11 @@ import { PipesModule } from './pipes/pipes.module';
     TabsModule.forRoot(),
     ToastrModule.forRoot(),
     ChartsModule,
-    FormsModule,
-    ReactiveFormsModule,
+    FormsModule,  
     ServiceModule,
+    DataTablesModule,
+    ReactiveFormsModule,
+  
     PipesModule
   ],
   declarations: [

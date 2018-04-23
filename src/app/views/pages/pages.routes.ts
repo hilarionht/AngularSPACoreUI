@@ -11,6 +11,14 @@ import { UsuariosComponent } from "./usuarios/usuarios.component";
 // import { LoginGuard } from './../services/guards/login.guard';
  import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from "./profile/profile.component";
+import { ProductoComponent } from "./producto/producto.component";
+import { ProductosComponent } from "./producto/productos.component";
+import { TipoProductoComponent } from "./producto/tipo-producto.component";
+import { TipoProductosComponent } from "./producto/tipo-productos.component";
+import { MarcaComponent } from "./marca/marca.component";
+import { MarcasComponent } from "./marca/marcas.component";
+import { ModeloComponent } from "./modelo/modelo.component";
+import { ModelosComponent } from "./modelo/modelos.component";
 // import { PagesComponent } from 'app/pages/pages.component';
 // import { DashboardComponent } from 'app/dashboard/dashboard.component';
 // import { NopagefoundComponent } from 'app/shared/nopagefound/nopagefound.component';
@@ -29,14 +37,14 @@ const pagesRoutes: Routes =[
           { path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de Usuario' } },
           
         //   { path: 'grafico1', component: Grafico1Component },
-        //   { path: 'producto/:id', component: ProductoComponent },
-        //   { path: 'productos', component: ProductosComponent },
-        //   { path: 'tipoproducto/:id', component: TipoProductoComponent },
-        //   { path: 'tipoproductos', component: TipoProductosComponent },
-        //   { path: 'marca/:id', component: MarcaComponent },
-        //   { path: 'marcas', component: MarcasComponent },
-        //   { path: 'modelo/:id', component: ModeloComponent },
-        //   { path: 'modelos', component: ModelosComponent },
+          { path: 'producto/:id', component: ProductoComponent },
+          { path: 'productos', component: ProductosComponent },
+          { path: 'tipoproducto/:id', component: TipoProductoComponent },
+          { path: 'tipoproductos', component: TipoProductosComponent },
+          { path: 'marca/:id', component: MarcaComponent },
+          { path: 'marcas', component: MarcasComponent },
+          { path: 'modelo/:id', component: ModeloComponent },
+          { path: 'modelos', component: ModelosComponent },
           { path: '', redirectTo: '/usuarios', pathMatch: 'full' }
 ];
 export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);

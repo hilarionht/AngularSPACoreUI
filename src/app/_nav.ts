@@ -2,6 +2,18 @@ export const navigation = [
   {
     name: 'Usuario',  url: '/usuarios', icon: 'icon-user', badge: { variant: 'info',      text: 'Mas'     }
   },
+  {
+    name: 'Producto',  url: '/productos', icon: 'icon-user', badge: { variant: 'info',      text: 'Mas'     }
+  },
+  {
+    name: 'Modelo',  url: '/modelos', icon: 'icon-user', badge: { variant: 'info',      text: 'Mas'     }
+  },
+  {
+    name: 'Marca',  url: '/marcas', icon: 'icon-user'
+  },
+  {
+    name: 'Tipo Productos',  url: '/tipoproductos', icon: 'icon-user', badge: { variant: 'info',      text: 'Mas'     }
+  },
   // { title: true,  name: 'Theme'  },
   // { name: 'Colors',    url: '/theme/colors',    icon: 'icon-drop'  },
   // { name: 'Typography',  url: '/theme/typography', icon: 'icon-pencil' },

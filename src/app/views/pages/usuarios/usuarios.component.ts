@@ -1,10 +1,12 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import swal from 'sweetalert2';
 import { Usuario } from '../../../models/usuario.model';
 import { UsuarioService } from '../../../services/service.index';
 import { ModalUploadService } from '../../../components/modal-upload/modal-upload.service';
+import { DataTableDirective } from 'angular-datatables';
 
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-usuarios',
@@ -19,6 +21,14 @@ export class UsuariosComponent implements OnInit {
 
   totalRegistros: number = 0;
   cargando: boolean = true;
+  dtTrigger: Subject<any> = new Subject();
+  datosTabla: Usuario[];
+  public dtOptions: DataTables.Settings = {};
+  public loading: false;
+  @ViewChildren(DataTableDirective)
+  min:number;
+  max:number;
+  datatableElement: DataTableDirective;
 
   constructor(
     public _usuarioService: UsuarioService,
@@ -26,10 +36,26 @@ export class UsuariosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
+      const id = parseFloat(data[0]) || 0; // use data for the id column
+      if ((isNaN(this.min) && isNaN(this.max)) ||
+        (isNaN(this.min) && id <= this.max) ||
+        (this.min <= id && isNaN(this.max)) ||
+        (this.min <= id && id <= this.max)) {
+        return true;
+      }
+      return false;
+    });
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 2
+    };
+  
     this.cargarUsuarios();
 
     this._modalUploadService.notificacion
           .subscribe( resp => this.cargarUsuarios() );
+
   }
 
   mostrarModal( id: string ) {
@@ -40,6 +66,7 @@ export class UsuariosComponent implements OnInit {
 
   cargarUsuarios() {
 
+
     this.cargando = true;
 
     this._usuarioService.cargarUsuarios( this.desde )
@@ -48,7 +75,8 @@ export class UsuariosComponent implements OnInit {
                 this.totalRegistros = resp.total;
                 this.usuarios = resp.usuarios;
                 this.cargando = false;
-
+                this.datosTabla = resp.usuarios;
+                this.dtTrigger.next();
               });
 
   }

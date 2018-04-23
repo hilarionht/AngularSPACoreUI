@@ -41,6 +41,7 @@ export class ModeloService {
 
   cargarModelos(desde: number=0) { 
     let url = URL_SERVICIOS + '/modelo?desde='+ desde;
+    url += '?token=' + this._usuarioService.token;
     return this.http.get( url ).map( (resp : any) => {
         this.totalModelos = resp.total;
         return resp;
@@ -48,6 +49,7 @@ export class ModeloService {
   }
   cargarModelosById(id: string) { 
     let url = URL_SERVICIOS + '/search/coleccion/modelosbyid/'+ id;
+    url += '?token=' + this._usuarioService.token;
     return this.http.get( url ).map( (resp : any) => {
         this.totalModelos = resp.total;
         return resp;
@@ -71,6 +73,7 @@ export class ModeloService {
   guardarModelo( modelo: Modelo ) {
 
     let url = URL_SERVICIOS + '/modelo';
+    
 
     if ( modelo._id ) {
       // actualizando
