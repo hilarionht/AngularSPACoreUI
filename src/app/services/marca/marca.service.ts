@@ -36,6 +36,7 @@ export class MarcaService {
 
   cargarMarcas(desde: number=0,limite:number=0) { 
     let url = URL_SERVICIOS + '/marca/?desde='+desde+'&limite='+limite;
+    url+=url + '&token=' + this._usuarioService.token;
     return this.http.get( url ).map( (resp : any) => {
         this.totalMarcas = resp.total;
         return resp;
